@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code Generator - Free Online Tool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Use template structure above -->
+    <!-- Add QR specific code -->
+    <script>
+        function generateQR() {
+            const text = document.getElementById('qr-text').value;
+            const qrcodeDiv = document.getElementById('qrcode');
+            qrcodeDiv.innerHTML = '';
+            
+            new QRCode(qrcodeDiv, {
+                text: text,
+                width: 256,
+                height: 256
+            });
+        }
+    </script>
+</body>
+</html>

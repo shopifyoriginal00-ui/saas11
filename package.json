@@ -1,0 +1,12 @@
+{
+  "name": "100-saas-platform",
+  "version": "1.0.0",
+  "description": "100 Professional SaaS Tools in One Platform",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "keywords": ["saas", "tools", "platform"],
+  "author": "Your Name",
+  "license": "MIT"
+}

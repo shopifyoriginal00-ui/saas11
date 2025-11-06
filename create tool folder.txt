@@ -1,0 +1,8 @@
+# Create folder structure
+mkdir -p tools/text
+mkdir -p tools/dev
+mkdir -p tools/image
+mkdir -p tools/business
+mkdir -p tools/calc
+mkdir -p tools/social
+mkdir -p tools/ai

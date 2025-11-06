@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 Tools Platform - Premium SaaS Suite</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD&intent=capture"></script>
+    
+    <!-- Razorpay (for Cards & UPI) -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    
+    <!-- PhonePe SDK -->
+    <script src="https://www.phonepe.com/v1/checkout.js"></script>
+    
+    <!-- Stripe (for International Cards) -->
+    <script src="https://js.stripe.com/v3/"></script>
+    
+    <style>
+        .gradient-premium {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .shimmer {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Special Offer Banner -->
+    <div class="bg-red-600 text-white text-center py-2 px-4 text-sm font-bold animate-pulse">
+        🔥 LIMITED TIME: 75% OFF - Only ₹99/month (Regular ₹399) | Offer Ends Soon!
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="text-2xl font-bold gradient-premium bg-clip-text text-transparent">
+                        100Tools Pro
+                    </div>
+                    <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full animate-pulse">
+                        LIVE
+                    </span>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button onclick="openPricing()" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full font-bold hover:shadow-xl transform hover:scale-105 transition">
+                        🚀 Go Premium
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-premium text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                100 Premium Tools in One Platform
+            </h1>
+            <p class="text-xl mb-8 opacity-90">
+                Replace 100 expensive subscriptions with one affordable platform
+            </p>
+            <button onclick="openPricing()" class="bg-white text-purple-600 px-8 py-4 rounded-full text-lg font-bold hover:shadow-2xl transform hover:scale-105 transition">
+                Start Free Trial - No Credit Card Required
+            </button>
+        </div>
+    </section>
+
+    <!-- Pricing Modal (Hidden by Default) -->
+    <div id="pricingModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            
+            <!-- Modal Header -->
+            <div class="gradient-premium text-white p-8 rounded-t-2xl relative">
+                <button onclick="closePricing()" class="absolute top-4 right-4 text-white hover:text-gray-200">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+                <h2 class="text-3xl font-bold mb-2">Choose Your Plan</h2>
+                <p>Join 50,000+ users who saved money with our platform</p>
+            </div>
+
+            <!-- Pricing Plans -->
+            <div class="p-8">
+                <!-- Payment Trust Badges -->
+                <div class="text-center mb-8">
+                    <p class="text-sm text-gray-600 mb-3">Trusted Payment Partners</p>
+                    <div class="flex justify-center items-center space-x-6 flex-wrap">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/PhonePe_Logo.svg/220px-PhonePe_Logo.svg.png" alt="PhonePe" class="h-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Google_Pay_Logo_2020.svg/220px-Google_Pay_Logo_2020.svg.png" alt="Google Pay" class="h-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Paytm_Logo_%28standalone%29.svg/220px-Paytm_Logo_%28standalone%29.svg.png" alt="Paytm" class="h-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="h-8">
+                        <div class="flex items-center space-x-1">
+                            <i class="fab fa-cc-visa text-2xl text-blue-600"></i>
+                            <i class="fab fa-cc-mastercard text-2xl text-red-600"></i>
+                            <i class="fab fa-cc-amex text-2xl text-blue-700"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plans Grid -->
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    
+                    <!-- Monthly Plan -->
+                    <div class="border-2 border-gray-200 rounded-xl p-6 relative hover:border-purple-500 transition">
+                        <h3 class="text-xl font-bold mb-3">Monthly</h3>
+                        <div class="mb-4">
+                            <span class="text-4xl font-bold">₹99</span>
+                            <span class="text-gray-600">/month</span>
+                            <p class="text-sm text-red-600 line-through">Regular: ₹399</p>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>All 100 Premium Tools</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>No Advertisements</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Unlimited Usage</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Download & Export</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span>Priority Support</span>
+                            </li>
+                        </ul>
+                        
+                        <button onclick="selectPlan('monthly', 99)" class="w-full bg-purple-600 text-white py-3 rounded-lg font-bold hover:bg-purple-700 transition">
+                            Select Plan
+                        </button>
+                    </div>
+
+                    <!-- Annual Plan (Most Popular) -->
+                    <div class="border-2 border-purple-500 rounded-xl p-6 relative transform scale-105 shadow-xl">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                            <span class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+                                MOST POPULAR - SAVE 58%
+                            </span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-3 mt-2">Annual</h3>
+                        <div class="mb-4">
+                            <span class="text-4xl font-bold">₹499</span>
+                            <span class="text-gray-600">/year</span>
+                            <p class="text-sm text-green-600 font-semibold">Only ₹42/month!</p>
+                            <p class="text-sm text-red-600 line-through">Regular: ₹4,788/year</p>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                <span class="font-semibold">Everything in Monthly</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-star text-yellow-500 mr-2 mt-1"></i>
+                                <span>Save ₹689 per year</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-star text-yellow-500 mr-2 mt-1"></i>
+                                <span>Premium API Access</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-star text-yellow-500 mr-2 mt-1"></i>
+                                <span>White Label Options</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-star text-yellow-500 mr-2 mt-1"></i>
+                                <span>Advanced Analytics</span>
+                            </li>
+                        </ul>
+                        
+                        <button onclick="selectPlan('annual', 499)" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-lg font-bold hover:shadow-lg transition">
+                            Select Best Value
+                        </button>
+                    </div>
+
+                    <!-- Lifetime Plan -->
+                    <div class="border-2 border-gray-200 rounded-xl p-6 relative hover:border-purple-500 transition">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                            <span class="bg-yellow-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                                LIMITED OFFER
+                            </span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-3 mt-2">Lifetime</h3>
+                        <div class="mb-4">
+                            <span class="text-4xl font-bold">₹2,999</span>
+                            <span class="text-gray-600">one-time</span>
+                            <p class="text-sm text-green-600 font-semibold">Pay once, use forever!</p>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-crown text-yellow-500 mr-2 mt-1"></i>
+                                <span class="font-semibold">Everything in Annual</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-infinity text-purple-500 mr-2 mt-1"></i>
+                                <span>Lifetime Updates</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-rocket text-blue-500 mr-2 mt-1"></i>
+                                <span>Early Access Features</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-certificate text-green-500 mr-2 mt-1"></i>
+                                <span>Reseller License</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-headset text-red-500 mr-2 mt-1"></i>
+                                <span>VIP Support</span>
+                            </li>
+                        </ul>
+                        
+                        <button onclick="selectPlan('lifetime', 2999)" class="w-full bg-yellow-500 text-white py-3 rounded-lg font-bold hover:bg-yellow-600 transition">
+                            Get Lifetime Access
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trust Elements -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="grid md:grid-cols-4 gap-4 text-center">
+                        <div>
+                            <i class="fas fa-shield-alt text-3xl text-green-500 mb-2"></i>
+                            <p class="font-semibold">100% Secure</p>
+                            <p class="text-sm text-gray-600">256-bit Encryption</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-undo text-3xl text-blue-500 mb-2"></i>
+                            <p class="font-semibold">30-Day Refund</p>
+                            <p class="text-sm text-gray-600">Money Back Guarantee</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-clock text-3xl text-purple-500 mb-2"></i>
+                            <p class="font-semibold">Instant Access</p>
+                            <p class="text-sm text-gray-600">Start in 30 seconds</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-users text-3xl text-orange-500 mb-2"></i>
+                            <p class="font-semibold">50K+ Users</p>
+                            <p class="text-sm text-gray-600">Trusted Worldwide</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Method Selection Modal -->
+    <div id="paymentModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full">
+            
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-6 rounded-t-2xl">
+                <h3 class="text-xl font-bold">Select Payment Method</h3>
+                <p class="text-sm mt-1">Plan: <span id="selectedPlanName"></span></p>
+                <p class="text-2xl font-bold mt-2">₹<span id="selectedPlanPrice"></span></p>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="p-6 space-y-3">
+                
+                <!-- PhonePe -->
+                <button onclick="payWithPhonePe()" class="w-full bg-purple-600 text-white py-3 px-4 rounded-lg flex items-center justify-between hover:bg-purple-700 transition">
+                    <div class="flex items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/PhonePe_Logo.svg/220px-PhonePe_Logo.svg.png" alt="PhonePe" class="h-6 mr-3 bg-white p-1 rounded">
+                        <span class="font-semibold">PhonePe</span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Google Pay -->
+                <button onclick="payWithGooglePay()" class="w-full bg-blue-500 text-white py-3 px-4 rounded-lg flex items-center justify-between hover:bg-blue-600 transition">
+                    <div class="flex items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Google_Pay_Logo.svg/220px-Google_Pay_Logo.svg.png" alt="Google Pay" class="h-6 mr-3 bg-white p-1 rounded">
+                        <span class="font-semibold">Google Pay</span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Paytm -->
+                <button onclick="payWithPaytm()" class="w-full bg-sky-500 text-white py-3 px-4 rounded-lg flex items-center justify-between hover:bg-sky-600 transition">
+                    <div class="flex items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Paytm_Logo_%28standalone%29.svg/220px-Paytm_Logo_%28standalone%29.svg.png" alt="Paytm" class="h-6 mr-3 bg-white p-1 rounded">
+                        <span class="font-semibold">Paytm</span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- UPI ID -->
+                <button onclick="payWithUPI()" class="w-full bg-green-600 text-white py-3 px-4 rounded-lg flex items-center justify-between hover:bg-green-700 transition">
+                    <div class="flex items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/UPI-Logo-vector.svg/220px-UPI-Logo-vector.svg.png" alt="UPI" class="h-6 mr-3 bg-white p-1 rounded">
+                        <span class="font-semibold">Other UPI Apps</span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- PayPal (International) -->
+                <button onclick="payWithPayPal()" class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg flex items-center justify-between hover:bg-blue-700 transition">
+                    <div class="flex items-center">
+                        <i class="fab fa-paypal text-2xl mr-3"></i>
+                        <span class="font-semibold">PayPal (International)</span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Credit/Debit Card -->
+                <button onclick="payWithCard()" class="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg flex items-center justify-between hover:bg-indigo-700 transition">
+                    <div class="flex items-center">
+                        <i class="fas fa-credit-card text-xl mr-3"></i>
+                        <span class="font-semibold">Credit/Debit Card</span>
+                    </div>
+                    <div class="flex space-x-1">
+                        <i class="fab fa-cc-visa text-xl"></i>
+                        <i class="fab fa-cc-mastercard text-xl"></i>
+                        <i class="fab fa-cc-amex text-xl"></i>
+                    </div>
+                </button>
+
+                <!-- Net Banking -->
+                <button onclick="payWithNetBanking()" class="w-full bg-teal-600 text-white py-3 px-4 rounded-lg flex items-center justify-between hover:bg-teal-700 transition">
+                    <div class="flex items-center">
+                        <i class="fas fa-university text-xl mr-3"></i>
+                        <span class="font-semibold">Net Banking</span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <hr class="my-4">
+
+                <!-- Cancel Button -->
+                <button onclick="closePaymentModal()" class="w-full bg-gray-200 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-300 transition">
+                    Cancel
+                </button>
+            </div>
+
+            <!-- Security Note -->
+            <div class="bg-gray-50 px-6 py-4 rounded-b-2xl">
+                <p class="text-xs text-gray-600 text-center">
+                    <i class="fas fa-lock text-green-500 mr-1"></i>
+                    Your payment info is secure and encrypted
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PhonePe Payment Processing -->
+    <div id="phonePeModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6">
+            <div class="text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/PhonePe_Logo.svg/220px-PhonePe_Logo.svg.png" alt="PhonePe" class="h-16 mx-auto mb-4">
+                <h3 class="text-xl font-bold mb-2">PhonePe Payment</h3>
+                <div class="bg-gray-100 rounded-lg p-4 mb-4">
+                    <p class="text-sm text-gray-600">Amount to Pay</p>
+                    <p class="text-3xl font-bold">₹<span id="phonePeAmount"></span></p>
+                </div>
+                
+                <!-- QR Code Placeholder -->
+                <div class="bg-gray-200 rounded-lg p-8 mb-4">
+                    <div id="phonePeQR" class="shimmer h-48 w-48 mx-auto rounded-lg"></div>
+                </div>
+                
+                <p class="text-sm text-gray-600 mb-4">Scan QR code with PhonePe app</p>
+                
+                <!-- UPI ID Option -->
+                <div class="text-left mb-4">
+                    <p class="text-sm font-semibold mb-2">Or pay using UPI ID:</p>
+                    <div class="bg-gray-100 p-3 rounded-lg flex items-center justify-between">
+                        <span class="font-mono text-sm">merchant@phonepe</span>
+                        <button onclick="copyUPI('merchant@phonepe')" class="text-blue-600 hover:text-blue-800">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <button onclick="verifyPhonePePayment()" class="w-full bg-purple-600 text-white py-3 rounded-lg font-bold hover:bg-purple-700 transition mb-2">
+                    I've Made the Payment
+                </button>
+                
+                <button onclick="closePhonePeModal()" class="w-full bg-gray-200 text-gray-700 py-2 rounded-lg hover:bg-gray-300 transition">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card Payment Form -->
+    <div id="cardModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full">
+            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6 rounded-t-2xl">
+                <h3 class="text-xl font-bold">Card Payment</h3>
+                <p class="text-sm mt-1">Secure payment via Stripe/Razorpay</p>
+            </div>
+            
+            <form id="cardForm" class="p-6">
+                <!-- Card Number -->
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Card Number</label>
+                    <div class="relative">
+                        <input type="text" 
+                               id="cardNumber" 
+                               placeholder="1234 5678 9012 3456" 
+                               maxlength="19"
+                               class="w-full p-3 border rounded-lg pl-12">
+                        <i class="fas fa-credit-card absolute left-4 top-4 text-gray-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Expiry and CVV -->
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Expiry Date</label>
+                        <input type="text" 
+                               id="expiry" 
+                               placeholder="MM/YY" 
+                               maxlength="5"
+                               class="w-full p-3 border rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">CVV</label>
+                        <input type="text" 
+                               id="cvv" 
+                               placeholder="123" 
+                               maxlength="3"
+                               class="w-full p-3 border rounded-lg">
+                    </div>
+                </div>
+                
+                <!-- Card Holder Name -->
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Card Holder Name</label>
+                    <input type="text" 
+                           id="cardName" 
+                           placeholder="John Doe"
+                           class="w-full p-3 border rounded-lg">
+                </div>
+                
+                <!-- Email -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium mb-2">Email Address</label>
+                    <input type="email" 
+                           id="email" 
+                           placeholder="john@example.com"
+                           class="w-full p-3 border rounded-lg">
+                </div>
+                
+                <!-- Submit Button -->
+                <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg font-bold hover:bg-indigo-700 transition">
+                    Pay ₹<span id="cardAmount"></span>
+                </button>
+                
+                <!-- Cancel -->
+                <button type="button" onclick="closeCardModal()" class="w-full mt-2 bg-gray-200 text-gray-700 py-3 rounded-lg hover:bg-gray-300 transition">
+                    Cancel
+                </button>
+            </form>
+            
+            <!-- Security Badges -->
+            <div class="bg-gray-50 px-6 py-4 rounded-b-2xl">
+                <div class="flex justify-center items-center space-x-4">
+                    <i class="fas fa-lock text-green-500"></i>
+                    <span class="text-xs text-gray-600">256-bit SSL Encryption</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-6">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="h-6">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center">
+            <div class="text-6xl mb-4">🎉</div>
+            <h3 class="text-2xl font-bold mb-2">Payment Successful!</h3>
+            <p class="text-gray-600 mb-6">Welcome to Premium! Your account has been upgraded.</p>
+            
+            <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                <p class="text-sm font-semibold text-green-800">Transaction Details</p>
+                <p class="text-xs text-green-600 mt-1">Transaction ID: <span id="transactionId"></span></p>
+                <p class="text-xs text-green-600">Amount Paid: ₹<span id="paidAmount"></span></p>
+            </div>
+            
+            <button onclick="goToDashboard()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-lg font-bold hover:shadow-lg transition">
+                Go to Premium Dashboard
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Implementation -->
+    <script>
+        // Global Variables
+        let selectedPlan = null;
+        let selectedPrice = null;
+        let paymentMethod = null;
+
+        // Razorpay Configuration
+        const razorpayConfig = {
+            key: 'YOUR_RAZORPAY_KEY_ID', // Replace with your key
+            name: '100Tools Platform',
+            description: 'Premium Subscription',
+            image: '/logo.png',
+            theme: {
+                color: '#7C3AED'
+            }
+        };
+
+        // Open Pricing Modal
+        function openPricing() {
+            document.getElementById('pricingModal').classList.remove('hidden');
+        }
+
+        // Close Pricing Modal
+        function closePricing() {
+            document.getElementById('pricingModal').classList.add('hidden');
+        }
+
+        // Select Plan
+        function selectPlan(plan, price) {
+            selectedPlan = plan;
+            selectedPrice = price;
+            
+            // Update payment modal
+            document.getElementById('selectedPlanName').textContent = plan.charAt(0).toUpperCase() + plan.slice(1);
+            document.getElementById('selectedPlanPrice').textContent = price;
+            
+            // Hide pricing, show payment methods
+            document.getElementById('pricingModal').classList.add('hidden');
+            document.getElementById('paymentModal').classList.remove('hidden');
+        }
+
+        // Close Payment Modal
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.add('hidden');
+        }
+
+        // PhonePe Payment
+        function payWithPhonePe() {
+            paymentMethod = 'phonepe';
+            document.getElementById('phonePeAmount').textContent = selectedPrice;
+            document.getElementById('paymentModal').classList.add('hidden');
+            document.getElementById('phonePeModal').classList.remove('hidden');
+            
+            // Generate QR Code
+            generatePhonePeQR();
+        }
+
+        // Generate PhonePe QR
+        function generatePhonePeQR() {
+            // Simulate QR generation
+            setTimeout(() => {
+                document.getElementById('phonePeQR').innerHTML = `
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=merchant@phonepe&pn=100Tools&am=${selectedPrice}&cu=INR" alt="QR Code">
+                `;
+            }, 1000);
+        }
+
+        // Close PhonePe Modal
+        function closePhonePeModal() {
+            document.getElementById('phonePeModal').classList.add('hidden');
+        }
+
+        // Verify PhonePe Payment
+        function verifyPhonePePayment() {
+            // Simulate verification
+            showLoader('Verifying payment...');
+            
+            setTimeout(() => {
+                paymentSuccess('PHONEPE' + Date.now());
+            }, 2000);
+        }
+
+        // Google Pay
+        function payWithGooglePay() {
+            paymentMethod = 'googlepay';
+            
+            const options = {
+                ...razorpayConfig,
+                amount: selectedPrice * 100, // Amount in paise
+                currency: 'INR',
+                handler: function(response) {
+                    paymentSuccess(response.razorpay_payment_id);
+                },
+                prefill: {
+                    email: '',
+                    contact: ''
+                },
+                notes: {
+                    plan: selectedPlan
+                }
+            };
+            
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
+
+        // Paytm Payment
+        function payWithPaytm() {
+            paymentMethod = 'paytm';
+            
+            // Use Razorpay with Paytm option
+            const options = {
+                ...razorpayConfig,
+                amount: selectedPrice * 100,
+                currency: 'INR',
+                handler: function(response) {
+                    paymentSuccess(response.razorpay_payment_id);
+                },
+                config: {
+                    display: {
+                        blocks: {
+                            banks: {
+                                name: 'Pay via Paytm',
+                                instruments: [{
+                                    method: 'wallet',
+                                    wallets: ['paytm']
+                                }]
+                            }
+                        }
+                    }
+                }
+            };
+            
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
+
+        // UPI Payment
+        function payWithUPI() {
+            paymentMethod = 'upi';
+            
+            const options = {
+                ...razorpayConfig,
+                amount: selectedPrice * 100,
+                currency: 'INR',
+                handler: function(response) {
+                    paymentSuccess(response.razorpay_payment_id);
+                },
+                config: {
+                    display: {
+                        blocks: {
+                            banks: {
+                                name: 'Pay via UPI',
+                                instruments: [{
+                                    method: 'upi'
+                                }]
+                            }
+                        }
+                    }
+                }
+            };
+            
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
+
+        // PayPal Payment
+        function payWithPayPal() {
+            paymentMethod = 'paypal';
+            
+            // PayPal button render
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            description: `100Tools - ${selectedPlan} Plan`,
+                            amount: {
+                                currency_code: 'USD',
+                                value: Math.round(selectedPrice / 83) // Convert INR to USD
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        paymentSuccess(details.id);
+                    });
+                },
+                onError: function(err) {
+                    console.error('PayPal Error:', err);
+                    alert('Payment failed. Please try again.');
+                }
+            }).render('#paypal-button-container');
+        }
+
+        // Card Payment
+        function payWithCard() {
+            paymentMethod = 'card';
+            document.getElementById('cardAmount').textContent = selectedPrice;
+            document.getElementById('paymentModal').classList.add('hidden');
+            document.getElementById('cardModal').classList.remove('hidden');
+        }
+
+        // Close Card Modal
+        function closeCardModal() {
+            document.getElementById('cardModal').classList.add('hidden');
+        }
+
+        // Card Form Submission
+        document.getElementById('cardForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const cardData = {
+                number: document.getElementById('cardNumber').value.replace(/\s/g, ''),
+                exp_month: document.getElementById('expiry').value.split('/')[0],
+                exp_year: '20' + document.getElementById('expiry').value.split('/')[1],
+                cvc: document.getElementById('cvv').value,
+                name: document.getElementById('cardName').value
+            };
+            
+            // Process with Razorpay/Stripe
+            processCardPayment(cardData);
+        });
+
+        // Process Card Payment
+        function processCardPayment(cardData) {
+            showLoader('Processing payment...');
+            
+            // Use Razorpay for card payment
+            const options = {
+                ...razorpayConfig,
+                amount: selectedPrice * 100,
+                currency: 'INR',
+                handler: function(response) {
+                    paymentSuccess(response.razorpay_payment_id);
+                },
+                prefill: {
+                    email: document.getElementById('email').value
+                }
+            };
+            
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
+
+        // Net Banking
+        function payWithNetBanking() {
+            paymentMethod = 'netbanking';
+            
+            const options = {
+                ...razorpayConfig,
+                amount: selectedPrice * 100,
+                currency: 'INR',
+                handler: function(response) {
+                    paymentSuccess(response.razorpay_payment_id);
+                },
+                config: {
+                    display: {
+                        blocks: {
+                            banks: {
+                                name: 'All Indian Banks',
+                                instruments: [{
+                                    method: 'netbanking'
+                                }]
+                            }
+                        }
+                    }
+                }
+            };
+            
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
+
+        // Payment Success Handler
+        function paymentSuccess(transactionId) {
+            // Close all modals
+            document.querySelectorAll('[id$="Modal"]').forEach(modal => {
+                modal.classList.add('hidden');
+            });
+            
+            // Update success modal
+            document.getElementById('transactionId').textContent = transactionId;
+            document.getElementById('paidAmount').textContent = selectedPrice;
+            
+            // Save to localStorage
+            localStorage.setItem('subscription', selectedPlan);
+            localStorage.setItem('subscriptionDate', new Date().toISOString());
+            localStorage.setItem('transactionId', transactionId);
+            
+            // Show success modal
+            document.getElementById('successModal').classList.remove('hidden');
+            
+            // Send to backend
+            saveSubscription(transactionId);
+        }
+
+        // Save Subscription to Backend
+        async function saveSubscription(transactionId) {
+            try {
+                const response = await fetch('/api/save-subscription', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        plan: selectedPlan,
+                        amount: selectedPrice,
+                        transactionId: transactionId,
+                        paymentMethod: paymentMethod,
+                        timestamp: new Date().toISOString()
+                    })
+                });
+                
+                const data = await response.json();
+                console.log('Subscription saved:', data);
+            } catch (error) {
+                console.error('Error saving subscription:', error);
+            }
+        }
+
+        // Go to Dashboard
+        function goToDashboard() {
+            window.location.href = '/premium-dashboard.html';
+        }
+
+        // Copy UPI ID
+        function copyUPI(upiId) {
+            navigator.clipboard.writeText(upiId);
+            alert('UPI ID copied!');
+        }
+
+        // Show Loader
+        function showLoader(message) {
+            // Implementation for loader
+            console.log(message);
+        }
+
+        // Format Card Number
+        document.getElementById('cardNumber')?.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+            e.target.value = formattedValue;
+        });
+
+        // Format Expiry
+        document.getElementById('expiry')?.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check subscription status
+            const subscription = localStorage.getItem('subscription');
+            if (subscription && subscription !== 'free') {
+                console.log('User has active subscription:', subscription);
+            }
+        });
+    </script>
+</body>
+</html>

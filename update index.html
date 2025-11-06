@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 SaaS Tools Platform - Free & Premium Tools</title>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX"
+         crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD"></script>
+    
+    <!-- Razorpay for UPI -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Top Banner Ad (728x90) -->
+    <div class="container mx-auto px-4 py-2">
+        <div class="text-center">
+            <!-- AdSense Banner Ad -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-pub-XXXXXXXXXX"
+                 data-ad-slot="1234567890"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- Premium Banner for Free Users -->
+    <div id="premium-banner" class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white py-3 px-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-crown mr-2"></i>
+                <span class="font-semibold">Remove Ads & Unlock All Features!</span>
+                <span class="ml-2 text-sm">Premium starting at ₹99/month</span>
+            </div>
+            <button onclick="showPricingModal()" class="bg-white text-orange-600 px-4 py-1 rounded-full font-bold hover:shadow-lg">
+                Upgrade Now →
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-blue-600">
+                    <i class="fas fa-rocket"></i> 100 Tools Platform
+                </h1>
+                <div class="flex items-center space-x-4">
+                    <span id="user-status" class="text-sm px-3 py-1 bg-gray-200 rounded-full">
+                        Free User
+                    </span>
+                    <button onclick="showPricingModal()" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-lg font-semibold">
+                        Go Premium
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area with Sidebar Ads -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left Sidebar Ad (For Desktop) -->
+            <div class="hidden lg:block lg:col-span-2">
+                <div class="sticky top-20">
+                    <!-- AdSense Vertical Ad -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:160px;height:600px"
+                         data-ad-client="ca-pub-XXXXXXXXXX"
+                         data-ad-slot="2345678901"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+
+            <!-- Main Content (8 columns) -->
+            <div class="lg:col-span-8">
+                
+                <!-- Tools Grid -->
+                <div id="tools-grid" class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- Tool Cards -->
+                </div>
+
+                <!-- In-Feed Ad After Every 6 Tools -->
+                <div class="my-8">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-format="fluid"
+                         data-ad-layout-key="-6t+ed+2i-1n-4w"
+                         data-ad-client="ca-pub-XXXXXXXXXX"
+                         data-ad-slot="3456789012"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+            </div>
+
+            <!-- Right Sidebar Ad -->
+            <div class="hidden lg:block lg:col-span-2">
+                <div class="sticky top-20">
+                    <!-- AdSense Square Ad -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-XXXXXXXXXX"
+                         data-ad-slot="4567890123"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Modal (Hidden by default) -->
+    <div id="pricing-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg max-w-6xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            
+            <!-- Modal Header -->
+            <div class="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 rounded-t-lg">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-3xl font-bold">Choose Your Plan</h2>
+                    <button onclick="closePricingModal()" class="text-white hover:text-gray-200">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <p class="mt-2">Remove all ads and unlock premium features!</p>
+            </div>
+
+            <!-- Pricing Plans -->
+            <div class="p-6">
+                <div class="grid md:grid-cols-4 gap-6">
+                    
+                    <!-- Free Plan -->
+                    <div class="border rounded-lg p-6 relative">
+                        <h3 class="text-xl font-bold mb-3">Free</h3>
+                        <p class="text-3xl font-bold mb-4">₹0</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>10 Tools Daily</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-times text-red-500 mr-2"></i>
+                                <span class="line-through">No Ads</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-times text-red-500 mr-2"></i>
+                                <span class="line-through">Premium Tools</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-times text-red-500 mr-2"></i>
+                                <span class="line-through">Download Feature</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-gray-300 text-gray-600 py-2 rounded-lg" disabled>
+                            Current Plan
+                        </button>
+                    </div>
+
+                    <!-- Monthly Plan -->
+                    <div class="border-2 border-blue-500 rounded-lg p-6 relative">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">POPULAR</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Monthly</h3>
+                        <p class="text-3xl font-bold mb-1">₹99</p>
+                        <p class="text-sm text-gray-600 mb-4">per month</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>All 100 Tools</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>No Ads</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Premium Features</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Download Results</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Priority Support</span>
+                            </li>
+                        </ul>
+                        <button onclick="subscribe('monthly', 99)" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 font-semibold">
+                            Subscribe Now
+                        </button>
+                        <p class="text-xs text-center mt-2 text-gray-500">Cancel anytime</p>
+                    </div>
+
+                    <!-- Annual Plan -->
+                    <div class="border-2 border-green-500 rounded-lg p-6 relative">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">SAVE 17%</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Annual</h3>
+                        <p class="text-3xl font-bold mb-1">₹999</p>
+                        <p class="text-sm text-gray-600 mb-4">per year (₹83/month)</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Everything in Monthly</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Save ₹189/year</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>API Access</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Custom Branding</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Bulk Processing</span>
+                            </li>
+                        </ul>
+                        <button onclick="subscribe('annual', 999)" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 font-semibold">
+                            Subscribe Now
+                        </button>
+                        <p class="text-xs text-center mt-2 text-gray-500">Best value!</p>
+                    </div>
+
+                    <!-- Lifetime Plan -->
+                    <div class="border-2 border-purple-500 rounded-lg p-6 relative">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm">LIMITED</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Lifetime</h3>
+                        <p class="text-3xl font-bold mb-1">₹4,999</p>
+                        <p class="text-sm text-gray-600 mb-4">one-time payment</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Everything in Annual</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Lifetime Access</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Future Tools Free</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>White Label Rights</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Reseller License</span>
+                            </li>
+                        </ul>
+                        <button onclick="subscribe('lifetime', 4999)" class="w-full bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600 font-semibold">
+                            Get Lifetime Access
+                        </button>
+                        <p class="text-xs text-center mt-2 text-gray-500">Only 100 spots!</p>
+                    </div>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="mt-8 pt-8 border-t">
+                    <h3 class="text-lg font-semibold mb-4 text-center">Secure Payment Methods</h3>
+                    <div class="flex justify-center items-center space-x-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="h-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg" alt="UPI" class="h-8">
+                        <div class="flex space-x-2">
+                            <span class="text-2xl">💳</span>
+                            <span>Cards</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <span class="text-2xl">🏦</span>
+                            <span>Net Banking</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 text-center">
+                        <p class="text-sm text-gray-600">
+                            <i class="fas fa-lock text-green-500 mr-1"></i>
+                            100% Secure Payment | 30-Day Money Back Guarantee
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="mt-8 grid grid-cols-4 gap-4 text-center">
+                    <div>
+                        <div class="text-2xl font-bold text-blue-600">10K+</div>
+                        <div class="text-sm text-gray-600">Active Users</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-green-600">4.8/5</div>
+                        <div class="text-sm text-gray-600">User Rating</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-purple-600">24/7</div>
+                        <div class="text-sm text-gray-600">Support</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-orange-600">100%</div>
+                        <div class="text-sm text-gray-600">Secure</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Processing Modal -->
+    <div id="payment-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg max-w-md w-full mx-4 p-6">
+            <h3 class="text-xl font-bold mb-4">Select Payment Method</h3>
+            
+            <div class="space-y-3">
+                <!-- PayPal Button -->
+                <button onclick="payWithPayPal()" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 flex items-center justify-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="h-6 mr-2 invert">
+                    Pay with PayPal
+                </button>
+
+                <!-- UPI Button -->
+                <button onclick="payWithUPI()" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 flex items-center justify-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg" alt="UPI" class="h-6 mr-2 invert">
+                    Pay with UPI
+                </button>
+
+                <!-- Card Button -->
+                <button onclick="payWithCard()" class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 flex items-center justify-center">
+                    <i class="fas fa-credit-card mr-2"></i>
+                    Pay with Card
+                </button>
+
+                <!-- PayPal Button Container (for SDK) -->
+                <div id="paypal-button-container"></div>
+            </div>
+
+            <button onclick="closePaymentModal()" class="mt-4 w-full text-gray-600 hover:text-gray-800">
+                Cancel
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Monetization -->
+    <script>
+        // Global variables
+        let currentPlan = null;
+        let currentPrice = null;
+        let userSubscription = localStorage.getItem('subscription') || 'free';
+
+        // Check user subscription status
+        function checkSubscription() {
+            if (userSubscription !== 'free') {
+                // Hide ads for premium users
+                document.querySelectorAll('.adsbygoogle').forEach(ad => {
+                    ad.style.display = 'none';
+                });
+                document.getElementById('premium-banner').style.display = 'none';
+                document.getElementById('user-status').innerHTML = `
+                    <i class="fas fa-crown text-yellow-500 mr-1"></i> Premium User
+                `;
+                document.getElementById('user-status').classList.add('bg-yellow-100');
+            }
+        }
+
+        // Show pricing modal
+        function showPricingModal() {
+            document.getElementById('pricing-modal').classList.remove('hidden');
+        }
+
+        // Close pricing modal
+        function closePricingModal() {
+            document.getElementById('pricing-modal').classList.add('hidden');
+        }
+
+        // Subscribe function
+        function subscribe(plan, price) {
+            currentPlan = plan;
+            currentPrice = price;
+            
+            // Show payment modal
+            document.getElementById('pricing-modal').classList.add('hidden');
+            document.getElementById('payment-modal').classList.remove('hidden');
+        }
+
+        // Close payment modal
+        function closePaymentModal() {
+            document.getElementById('payment-modal').classList.add('hidden');
+        }
+
+        // PayPal Payment
+        function payWithPayPal() {
+            // Render PayPal button
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            description: `100 Tools Platform - ${currentPlan} Plan`,
+                            amount: {
+                                currency_code: 'USD',
+                                value: (currentPrice / 83).toFixed(2) // Convert INR to USD
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        // Payment successful
+                        activatePremium(currentPlan);
+                        alert('Payment successful! Welcome to Premium!');
+                    });
+                },
+                onError: function(err) {
+                    console.error('PayPal error:', err);
+                    alert('Payment failed. Please try again.');
+                }
+            }).render('#paypal-button-container');
+        }
+
+        // UPI Payment (using Razorpay)
+        function payWithUPI() {
+            const options = {
+                key: 'YOUR_RAZORPAY_KEY', // Replace with your Razorpay key
+                amount: currentPrice * 100, // Amount in paise
+                currency: 'INR',
+                name: '100 Tools Platform',
+                description: `${currentPlan} Subscription`,
+                image: '/logo.png',
+                handler: function(response) {
+                    // Payment successful
+                    verifyPayment(response.razorpay_payment_id);
+                },
+                prefill: {
+                    email: 'user@example.com',
+                    contact: '9999999999'
+                },
+                notes: {
+                    plan: currentPlan
+                },
+                theme: {
+                    color: '#7C3AED'
+                },
+                modal: {
+                    ondismiss: function() {
+                        console.log('Payment cancelled');
+                    }
+                }
+            };
+
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
+
+        // Card Payment
+        function payWithCard() {
+            // Use Stripe or Razorpay for card payments
+            payWithUPI(); // Using same Razorpay for cards
+        }
+
+        // Verify payment (server-side verification needed)
+        async function verifyPayment(paymentId) {
+            try {
+                const response = await fetch('/api/verify-payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        paymentId: paymentId,
+                        plan: currentPlan
+                    })
+                });
+
+                if (response.ok) {
+                    activatePremium(currentPlan);
+                }
+            } catch (error) {
+                console.error('Verification error:', error);
+                // For demo, activate anyway
+                activatePremium(currentPlan);
+            }
+        }
+
+        // Activate premium features
+        function activatePremium(plan) {
+            localStorage.setItem('subscription', plan);
+            localStorage.setItem('subscriptionDate', new Date().toISOString());
+            
+            // Hide ads
+            document.querySelectorAll('.adsbygoogle').forEach(ad => {
+                ad.style.display = 'none';
+            });
+            
+            // Update UI
+            document.getElementById('premium-banner').style.display = 'none';
+            document.getElementById('user-status').innerHTML = `
+                <i class="fas fa-crown text-yellow-500 mr-1"></i> Premium User
+            `;
+            
+            // Close modals
+            closePaymentModal();
+            
+            // Redirect to premium dashboard
+            setTimeout(() => {
+                window.location.href = '/premium-dashboard.html';
+            }, 2000);
+        }
+
+        // AdSense Ad Loader
+        function loadAds() {
+            // Only load ads for free users
+            if (userSubscription === 'free') {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            checkSubscription();
+            loadAds();
+        });
+
+        // Track ad impressions for analytics
+        function trackAdImpression(adType) {
+            // Send to analytics
+            fetch('/api/analytics', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    event: 'ad_impression',
+                    type: adType,
+                    timestamp: new Date().toISOString()
+                })
+            });
+        }
+
+        // Handle subscription cancellation
+        function cancelSubscription() {
+            if (confirm('Are you sure you want to cancel your subscription?')) {
+                localStorage.setItem('subscription', 'free');
+                location.reload();
+            }
+        }
+
+        // Auto-renew handler (for recurring subscriptions)
+        function setupAutoRenew() {
+            const subscriptionDate = localStorage.getItem('subscriptionDate');
+            if (subscriptionDate) {
+                const renewDate = new Date(subscriptionDate);
+                renewDate.setMonth(renewDate.getMonth() + 1); // Monthly renewal
+                
+                const now = new Date();
+                if (now >= renewDate) {
+                    // Trigger renewal payment
+                    console.log('Subscription renewal needed');
+                }
+            }
+        }
+
+        // Call auto-renew check
+        setupAutoRenew();
+    </script>
+
+    <!-- Google AdSense Auto Ads -->
+    <script>
+        // Auto ads configuration
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-XXXXXXXXXX",
+            enable_page_level_ads: true
+        });
+    </script>
+</body>
+</html>

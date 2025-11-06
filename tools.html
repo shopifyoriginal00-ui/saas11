@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[TOOL NAME] - Free Online Tool | SaaS Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="flex items-center space-x-2">
+                    <i class="fas fa-arrow-left text-gray-600"></i>
+                    <span class="font-semibold">Back to All Tools</span>
+                </a>
+                <div class="text-sm text-gray-500">
+                    Tool #[NUMBER] of 100
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tool Container -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Tool Header -->
+            <div class="bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-t-lg p-8 text-center">
+                <div class="text-5xl mb-4">[ICON]</div>
+                <h1 class="text-3xl font-bold mb-2">[TOOL NAME]</h1>
+                <p class="text-lg opacity-90">[TOOL DESCRIPTION]</p>
+            </div>
+
+            <!-- Tool Interface -->
+            <div class="bg-white rounded-b-lg shadow-lg p-8">
+                <!-- Input Section -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Input:
+                    </label>
+                    <textarea 
+                        id="toolInput"
+                        rows="6"
+                        placeholder="Enter your text/data here..."
+                        class="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:outline-none"></textarea>
+                </div>
+
+                <!-- Options/Settings -->
+                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Option 1:</label>
+                        <select class="w-full p-2 border rounded-lg">
+                            <option>Default</option>
+                            <option>Option A</option>
+                            <option>Option B</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Option 2:</label>
+                        <input type="number" class="w-full p-2 border rounded-lg" value="10">
+                    </div>
+                </div>
+
+                <!-- Process Button -->
+                <button 
+                    onclick="processTool()"
+                    class="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition">
+                    <i class="fas fa-play mr-2"></i> Process
+                </button>
+
+                <!-- Output Section -->
+                <div class="mt-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Output:
+                    </label>
+                    <div id="toolOutput" class="w-full p-4 bg-gray-50 border-2 border-gray-200 rounded-lg min-h-[150px]">
+                        <p class="text-gray-400">Output will appear here...</p>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="grid grid-cols-3 gap-4 mt-4">
+                    <button onclick="copyOutput()" class="bg-green-500 text-white py-2 rounded-lg hover:bg-green-600">
+                        <i class="fas fa-copy mr-2"></i> Copy
+                    </button>
+                    <button onclick="downloadOutput()" class="bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">
+                        <i class="fas fa-download mr-2"></i> Download
+                    </button>
+                    <button onclick="clearAll()" class="bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600">
+                        <i class="fas fa-trash mr-2"></i> Clear
+                    </button>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="bg-white rounded-lg shadow-lg mt-6 p-6">
+                <h2 class="text-xl font-semibold mb-4">How to Use</h2>
+                <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                    <li>Enter or paste your input in the text area above</li>
+                    <li>Select any options or settings as needed</li>
+                    <li>Click the "Process" button</li>
+                    <li>View the output in the result section</li>
+                    <li>Copy or download the result as needed</li>
+                </ol>
+            </div>
+
+            <!-- Features -->
+            <div class="bg-blue-50 rounded-lg mt-6 p-6">
+                <h2 class="text-xl font-semibold mb-4">Features</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span>100% Free to use</span>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span>No registration required</span>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span>Instant results</span>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span>Secure & Private</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Tools -->
+            <div class="mt-8">
+                <h2 class="text-xl font-semibold mb-4">Related Tools</h2>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <a href="#" class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+                        <div class="text-2xl mb-2">📝</div>
+                        <h3 class="font-semibold">Tool Name</h3>
+                    </a>
+                    <a href="#" class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+                        <div class="text-2xl mb-2">🔧</div>
+                        <h3 class="font-semibold">Tool Name</h3>
+                    </a>
+                    <a href="#" class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+                        <div class="text-2xl mb-2">🎨</div>
+                        <h3 class="font-semibold">Tool Name</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 mt-12 py-6">
+        <div class="container mx-auto px-4 text-center text-gray-600">
+            <p>&copy; 2024 SaaS Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tool-specific functionality
+        function processTool() {
+            const input = document.getElementById('toolInput').value;
+            const output = document.getElementById('toolOutput');
+            
+            // Add your tool logic here
+            // Example:
+            const result = input.toUpperCase(); // Replace with actual logic
+            
+            output.innerHTML = `<pre>${result}</pre>`;
+        }
+
+        function copyOutput() {
+            const output = document.getElementById('toolOutput').textContent;
+            navigator.clipboard.writeText(output);
+            alert('Copied to clipboard!');
+        }
+
+        function downloadOutput() {
+            const output = document.getElementById('toolOutput').textContent;
+            const blob = new Blob([output], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'output.txt';
+            a.click();
+        }
+
+        function clearAll() {
+            document.getElementById('toolInput').value = '';
+            document.getElementById('toolOutput').innerHTML = '<p class="text-gray-400">Output will appear here...</p>';
+        }
+    </script>
+</body>
+</html>

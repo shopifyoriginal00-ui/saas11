@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Hub - 100 Professional Tools in One Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .tool-card {
+            transition: all 0.3s ease;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .category-badge {
+            transition: all 0.3s ease;
+        }
+        .category-badge:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Top Notification Bar -->
+    <div class="bg-red-600 text-white text-center py-2 text-sm font-semibold">
+        🔥 Launch Offer: Get All 100 Tools for FREE! Limited Time Only
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="text-2xl font-bold gradient-bg bg-clip-text text-transparent">
+                        <i class="fas fa-cube"></i> SaaS Hub
+                    </div>
+                    <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full">BETA</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#tools" class="hover:text-purple-600">Tools</a>
+                    <a href="#categories" class="hover:text-purple-600">Categories</a>
+                    <a href="#pricing" class="hover:text-purple-600">Pricing</a>
+                    <a href="#about" class="hover:text-purple-600">About</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button class="relative">
+                        <i class="fas fa-search text-gray-600"></i>
+                    </button>
+                    <button class="relative">
+                        <i class="fas fa-bell text-gray-600"></i>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">3</span>
+                    </button>
+                    <button class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg">
+                        Get Started Free
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+                    100 Premium SaaS Tools
+                    <span class="block text-3xl mt-2 text-yellow-300">All in One Platform</span>
+                </h1>
+                <p class="text-xl mb-8 opacity-90">
+                    Save $5000+ per year. Replace 100 different subscriptions with one powerful platform.
+                </p>
+                
+                <!-- Search Bar -->
+                <div class="max-w-2xl mx-auto mb-8">
+                    <div class="relative">
+                        <input type="text" 
+                               id="searchTools"
+                               placeholder="Search from 100+ tools... (e.g., QR Generator, Invoice)" 
+                               class="w-full px-6 py-4 rounded-full text-gray-800 text-lg shadow-2xl"
+                               onkeyup="searchTools(this.value)">
+                        <button class="absolute right-2 top-2 bg-purple-600 text-white px-6 py-2 rounded-full">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+                    <div class="bg-white/20 backdrop-blur rounded-lg p-4">
+                        <div class="text-3xl font-bold">100+</div>
+                        <div class="text-sm">Tools Available</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur rounded-lg p-4">
+                        <div class="text-3xl font-bold">50K+</div>
+                        <div class="text-sm">Active Users</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur rounded-lg p-4">
+                        <div class="text-3xl font-bold">$0</div>
+                        <div class="text-sm">Start Free</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur rounded-lg p-4">
+                        <div class="text-3xl font-bold">24/7</div>
+                        <div class="text-sm">Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Browse by Category</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+                <!-- Category Cards -->
+                <div class="category-badge bg-blue-100 hover:bg-blue-200 rounded-lg p-4 text-center cursor-pointer" onclick="filterByCategory('text')">
+                    <i class="fas fa-font text-3xl text-blue-600 mb-2"></i>
+                    <div class="font-semibold">Text Tools</div>
+                    <div class="text-xs text-gray-600">20 tools</div>
+                </div>
+                
+                <div class="category-badge bg-green-100 hover:bg-green-200 rounded-lg p-4 text-center cursor-pointer" onclick="filterByCategory('dev')">
+                    <i class="fas fa-code text-3xl text-green-600 mb-2"></i>
+                    <div class="font-semibold">Developer</div>
+                    <div class="text-xs text-gray-600">20 tools</div>
+                </div>
+                
+                <div class="category-badge bg-purple-100 hover:bg-purple-200 rounded-lg p-4 text-center cursor-pointer" onclick="filterByCategory('image')">
+                    <i class="fas fa-image text-3xl text-purple-600 mb-2"></i>
+                    <div class="font-semibold">Image</div>
+                    <div class="text-xs text-gray-600">15 tools</div>
+                </div>
+                
+                <div class="category-badge bg-yellow-100 hover:bg-yellow-200 rounded-lg p-4 text-center cursor-pointer" onclick="filterByCategory('business')">
+                    <i class="fas fa-briefcase text-3xl text-yellow-600 mb-2"></i>
+                    <div class="font-semibold">Business</div>
+                    <div class="text-xs text-gray-600">15 tools</div>
+                </div>
+                
+                <div class="category-badge bg-red-100 hover:bg-red-200 rounded-lg p-4 text-center cursor-pointer" onclick="filterByCategory('calculator')">
+                    <i class="fas fa-calculator text-3xl text-red-600 mb-2"></i>
+                    <div class="font-semibold">Calculator</div>
+                    <div class="text-xs text-gray-600">15 tools</div>
+                </div>
+                
+                <div class="category-badge bg-pink-100 hover:bg-pink-200 rounded-lg p-4 text-center cursor-pointer" onclick="filterByCategory('social')">
+                    <i class="fas fa-share-alt text-3xl text-pink-600 mb-2"></i>
+                    <div class="font-semibold">Social</div>
+                    <div class="text-xs text-gray-600">10 tools</div>
+                </div>
+                
+                <div class="category-badge bg-indigo-100 hover:bg-indigo-200 rounded-lg p-4 text-center cursor-pointer" onclick="filterByCategory('ai')">
+                    <i class="fas fa-robot text-3xl text-indigo-600 mb-2"></i>
+                    <div class="font-semibold">AI Tools</div>
+                    <div class="text-xs text-gray-600">5 tools</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All 100 Tools Grid -->
+    <section id="tools" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">All 100 Tools</h2>
+                <div class="flex space-x-4">
+                    <select class="px-4 py-2 border rounded-lg" onchange="sortTools(this.value)">
+                        <option value="popular">Most Popular</option>
+                        <option value="newest">Newest First</option>
+                        <option value="name">Alphabetical</option>
+                    </select>
+                    <button onclick="toggleView()" class="px-4 py-2 border rounded-lg">
+                        <i class="fas fa-th"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tools Grid -->
+            <div id="toolsGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <!-- Tools will be dynamically loaded here -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button onclick="loadMoreTools()" class="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700">
+                    Load More Tools
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Why Choose Our Platform?</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-dollar-sign text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Save Money</h3>
+                    <p class="text-gray-600">Replace 100 different subscriptions with one affordable platform</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Save Time</h3>
+                    <p class="text-gray-600">All tools in one place, no need to switch between different apps</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Secure & Private</h3>
+                    <p class="text-gray-600">Your data is encrypted and never shared with third parties</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="font-bold text-xl mb-4">SaaS Hub</h4>
+                    <p class="text-gray-400">100 Professional Tools in One Platform</p>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4">Quick Links</h5>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">All Tools</a></li>
+                        <li><a href="#" class="hover:text-white">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white">API Access</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4">Support</h5>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white">Status</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4">Connect</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 SaaS Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Complete Tools Database
+        const allTools = [
+            // TEXT TOOLS (1-20)
+            {id: 1, name: 'Word Counter', icon: '📝', category: 'text', description: 'Count words, characters, sentences', url: '/tools/text/word-counter.html', popular: true},
+            {id: 2, name: 'Text Case Converter', icon: '🔤', category: 'text', description: 'Convert text case instantly', url: '/tools/text/case-converter.html'},
+            {id: 3, name: 'Lorem Ipsum Generator', icon: '📄', category: 'text', description: 'Generate placeholder text', url: '/tools/text/lorem-ipsum.html'},
+            {id: 4, name: 'Character Counter', icon: '🔢', category: 'text', description: 'Count characters in real-time', url: '/tools/text/character-counter.html'},
+            {id: 5, name: 'Text to Speech', icon: '🔊', category: 'text', description: 'Convert text to audio', url: '/tools/text/text-to-speech.html', popular: true},
+            {id: 6, name: 'Markdown Editor', icon: '✍️', category: 'text', description: 'Write and preview markdown', url: '/tools/text/markdown-editor.html'},
+            {id: 7, name: 'Find and Replace', icon: '🔍', category: 'text', description: 'Find and replace text', url: '/tools/text/find-replace.html'},
+            {id: 8, name: 'Text Reverser', icon: '↩️', category: 'text', description: 'Reverse any text instantly', url: '/tools/text/text-reverser.html'},
+            {id: 9, name: 'Remove Duplicates', icon: '🧹', category: 'text', description: 'Remove duplicate lines', url: '/tools/text/remove-duplicates.html'},
+            {id: 10, name: 'Text Sorter', icon: '📊', category: 'text', description: 'Sort text alphabetically', url: '/tools/text/text-sorter.html'},
+            {id: 11, name: 'Extract Emails', icon: '📧', category: 'text', description: 'Extract email addresses', url: '/tools/text/extract-emails.html'},
+            {id: 12, name: 'Extract URLs', icon: '🔗', category: 'text', description: 'Extract URLs from text', url: '/tools/text/extract-urls.html'},
+            {id: 13, name: 'Word Frequency', icon: '📈', category: 'text', description: 'Analyze word frequency', url: '/tools/text/word-frequency.html'},
+            {id: 14, name: 'Text Diff Checker', icon: '⚖️', category: 'text', description: 'Compare two texts', url: '/tools/text/text-diff.html'},
+            {id: 15, name: 'Binary Translator', icon: '💻', category: 'text', description: 'Text to binary converter', url: '/tools/text/binary-translator.html'},
+            {id: 16, name: 'Morse Code', icon: '📡', category: 'text', description: 'Morse code translator', url: '/tools/text/morse-code.html'},
+            {id: 17, name: 'Reading Time', icon: '⏱️', category: 'text', description: 'Calculate reading time', url: '/tools/text/reading-time.html'},
+            {id: 18, name: 'Palindrome Checker', icon: '🔄', category: 'text', description: 'Check if text is palindrome', url: '/tools/text/palindrome.html'},
+            {id: 19, name: 'Text to ASCII', icon: '🎨', category: 'text', description: 'Convert text to ASCII art', url: '/tools/text/ascii-art.html'},
+            {id: 20, name: 'Spell Checker', icon: '✅', category: 'text', description: 'Check spelling errors', url: '/tools/text/spell-checker.html'},
+
+            // DEVELOPER TOOLS (21-40)
+            {id: 21, name: 'JSON Formatter', icon: '🔧', category: 'dev', description: 'Format and validate JSON', url: '/tools/dev/json-formatter.html', popular: true},
+            {id: 22, name: 'Base64 Encoder', icon: '🔐', category: 'dev', description: 'Encode/decode Base64', url: '/tools/dev/base64.html', popular: true},
+            {id: 23, name: 'URL Encoder', icon: '🌐', category: 'dev', description: 'Encode/decode URLs', url: '/tools/dev/url-encoder.html'},
+            {id: 24, name: 'HTML Minifier', icon: '📦', category: 'dev', description: 'Minify HTML code', url: '/tools/dev/html-minifier.html'},
+            {id: 25, name: 'CSS Minifier', icon: '🎨', category: 'dev', description: 'Minify CSS code', url: '/tools/dev/css-minifier.html'},
+            {id: 26, name: 'JS Minifier', icon: '⚡', category: 'dev', description: 'Minify JavaScript', url: '/tools/dev/js-minifier.html'},
+            {id: 27, name: 'SQL Formatter', icon: '🗄️', category: 'dev', description: 'Format SQL queries', url: '/tools/dev/sql-formatter.html'},
+            {id: 28, name: 'Regex Tester', icon: '🔍', category: 'dev', description: 'Test regex patterns', url: '/tools/dev/regex-tester.html'},
+            {id: 29, name: 'JWT Decoder', icon: '🔑', category: 'dev', description: 'Decode JWT tokens', url: '/tools/dev/jwt-decoder.html'},
+            {id: 30, name: 'Unix Timestamp', icon: '🕐', category: 'dev', description: 'Convert Unix timestamps', url: '/tools/dev/unix-timestamp.html'},
+            {id: 31, name: 'UUID Generator', icon: '🆔', category: 'dev', description: 'Generate unique UUIDs', url: '/tools/dev/uuid-generator.html'},
+            {id: 32, name: 'MD5 Generator', icon: '🔒', category: 'dev', description: 'Generate MD5 hash', url: '/tools/dev/md5-generator.html'},
+            {id: 33, name: 'SHA Generator', icon: '🛡️', category: 'dev', description: 'Generate SHA hash', url: '/tools/dev/sha-generator.html'},
+            {id: 34, name: 'Color Converter', icon: '🎨', category: 'dev', description: 'Convert color formats', url: '/tools/dev/color-converter.html'},
+            {id: 35, name: 'Cron Generator', icon: '⏰', category: 'dev', description: 'Generate cron expressions', url: '/tools/dev/cron-generator.html'},
+            {id: 36, name: 'HTML Beautifier', icon: '✨', category: 'dev', description: 'Beautify HTML code', url: '/tools/dev/html-beautifier.html'},
+            {id: 37, name: 'CSS Beautifier', icon: '💅', category: 'dev', description: 'Beautify CSS code', url: '/tools/dev/css-beautifier.html'},
+            {id: 38, name: 'JS Beautifier', icon: '🌟', category: 'dev', description: 'Beautify JavaScript', url: '/tools/dev/js-beautifier.html'},
+            {id: 39, name: 'XML Formatter', icon: '📋', category: 'dev', description: 'Format XML documents', url: '/tools/dev/xml-formatter.html'},
+            {id: 40, name: 'YAML Validator', icon: '✔️', category: 'dev', description: 'Validate YAML files', url: '/tools/dev/yaml-validator.html'},
+
+            // IMAGE TOOLS (41-55)
+            {id: 41, name: 'QR Code Generator', icon: '📱', category: 'image', description: 'Generate QR codes', url: '/tools/image/qr-generator.html', popular: true},
+            {id: 42, name: 'Image Resizer', icon: '📐', category: 'image', description: 'Resize images online', url: '/tools/image/image-resizer.html', popular: true},
+            {id: 43, name: 'Image Compressor', icon: '🗜️', category: 'image', description: 'Compress images', url: '/tools/image/image-compressor.html'},
+            {id: 44, name: 'Image to Base64', icon: '🔄', category: 'image', description: 'Convert image to Base64', url: '/tools/image/image-to-base64.html'},
+            {id: 45, name: 'Color Picker', icon: '🎨', category: 'image', description: 'Pick colors from screen', url: '/tools/image/color-picker.html'},
+            {id: 46, name: 'Gradient Generator', icon: '🌈', category: 'image', description: 'Create CSS gradients', url: '/tools/image/gradient-generator.html'},
+            {id: 47, name: 'Favicon Generator', icon: '🔖', category: 'image', description: 'Generate favicon icons', url: '/tools/image/favicon-generator.html'},
+            {id: 48, name: 'Placeholder Image', icon: '🖼️', category: 'image', description: 'Generate placeholder images', url: '/tools/image/placeholder.html'},
+            {id: 49, name: 'Avatar Generator', icon: '👤', category: 'image', description: 'Create random avatars', url: '/tools/image/avatar-generator.html'},
+            {id: 50, name: 'Barcode Generator', icon: '📊', category: 'image', description: 'Generate barcodes', url: '/tools/image/barcode-generator.html'},
+            {id: 51, name: 'Screenshot Tool', icon: '📸', category: 'image', description: 'Capture screenshots', url: '/tools/image/screenshot.html'},
+            {id: 52, name: 'Image Filters', icon: '🎭', category: 'image', description: 'Apply image filters', url: '/tools/image/filters.html'},
+            {id: 53, name: 'Meme Generator', icon: '😂', category: 'image', description: 'Create funny memes', url: '/tools/image/meme-generator.html'},
+            {id: 54, name: 'Color Extractor', icon: '💧', category: 'image', description: 'Extract colors from images', url: '/tools/image/color-extractor.html'},
+            {id: 55, name: 'Image Cropper', icon: '✂️', category: 'image', description: 'Crop images online', url: '/tools/image/image-cropper.html'},
+
+            // BUSINESS TOOLS (56-70)
+            {id: 56, name: 'Invoice Generator', icon: '📄', category: 'business', description: 'Create professional invoices', url: '/tools/business/invoice-generator.html', popular: true},
+            {id: 57, name: 'Password Generator', icon: '🔐', category: 'business', description: 'Generate strong passwords', url: '/tools/business/password-generator.html', popular: true},
+            {id: 58, name: 'Business Name Gen', icon: '💼', category: 'business', description: 'Generate business names', url: '/tools/business/business-name.html'},
+            {id: 59, name: 'Email Signature', icon: '✉️', category: 'business', description: 'Create email signatures', url: '/tools/business/email-signature.html'},
+            {id: 60, name: 'Receipt Maker', icon: '🧾', category: 'business', description: 'Generate receipts', url: '/tools/business/receipt-maker.html'},
+            {id: 61, name: 'Contract Template', icon: '📋', category: 'business', description: 'Business contract templates', url: '/tools/business/contract-template.html'},
+            {id: 62, name: 'Terms Generator', icon: '📜', category: 'business', description: 'Generate terms & conditions', url: '/tools/business/terms-generator.html'},
+            {id: 63, name: 'Privacy Policy Gen', icon: '🔒', category: 'business', description: 'Create privacy policy', url: '/tools/business/privacy-policy.html'},
+            {id: 64, name: 'Business Card', icon: '🎴', category: 'business', description: 'Design business cards', url: '/tools/business/business-card.html'},
+            {id: 65, name: 'Username Generator', icon: '👤', category: 'business', description: 'Generate usernames', url: '/tools/business/username-generator.html'},
+            {id: 66, name: 'Domain Generator', icon: '🌐', category: 'business', description: 'Find domain names', url: '/tools/business/domain-generator.html'},
+            {id: 67, name: 'NDA Generator', icon: '🤝', category: 'business', description: 'Create NDA documents', url: '/tools/business/nda-generator.html'},
+            {id: 68, name: 'Proposal Template', icon: '📑', category: 'business', description: 'Business proposals', url: '/tools/business/proposal-template.html'},
+            {id: 69, name: 'Meeting Agenda', icon: '📅', category: 'business', description: 'Meeting agenda templates', url: '/tools/business/meeting-agenda.html'},
+            {id: 70, name: 'Timesheet Calc', icon: '⏱️', category: 'business', description: 'Calculate work hours', url: '/tools/business/timesheet.html'},
+
+            // CALCULATOR TOOLS (71-85)
+            {id: 71, name: 'Age Calculator', icon: '🎂', category: 'calculator', description: 'Calculate exact age', url: '/tools/calc/age-calculator.html'},
+            {id: 72, name: 'BMI Calculator', icon: '⚖️', category: 'calculator', description: 'Body Mass Index', url: '/tools/calc/bmi-calculator.html'},
+            {id: 73, name: 'Loan Calculator', icon: '💰', category: 'calculator', description: 'Calculate loan EMI', url: '/tools/calc/loan-calculator.html'},
+            {id: 74, name: 'GST Calculator', icon: '🧮', category: 'calculator', description: 'Calculate GST amount', url: '/tools/calc/gst-calculator.html'},
+            {id: 75, name: 'Tip Calculator', icon: '💵', category: 'calculator', description: 'Calculate tips', url: '/tools/calc/tip-calculator.html'},
+            {id: 76, name: 'Percentage Calc', icon: '%', category: 'calculator', description: 'Percentage calculator', url: '/tools/calc/percentage.html'},
+            {id: 77, name: 'Discount Calc', icon: '🏷️', category: 'calculator', description: 'Calculate discounts', url: '/tools/calc/discount.html'},
+            {id: 78, name: 'EMI Calculator', icon: '🏦', category: 'calculator', description: 'EMI calculator', url: '/tools/calc/emi.html'},
+            {id: 79, name: 'Compound Interest', icon: '📈', category: 'calculator', description: 'Compound interest calc', url: '/tools/calc/compound-interest.html'},
+            {id: 80, name: 'Simple Interest', icon: '📊', category: 'calculator', description: 'Simple interest calc', url: '/tools/calc/simple-interest.html'},
+            {id: 81, name: 'ROI Calculator', icon: '💹', category: 'calculator', description: 'Return on Investment', url: '/tools/calc/roi.html'},
+            {id: 82, name: 'Margin Calculator', icon: '📉', category: 'calculator', description: 'Profit margin calc', url: '/tools/calc/margin.html'},
+            {id: 83, name: 'Currency Converter', icon: '💱', category: 'calculator', description: 'Convert currencies', url: '/tools/calc/currency.html'},
+            {id: 84, name: 'Unit Converter', icon: '📏', category: 'calculator', description: 'Convert units', url: '/tools/calc/unit-converter.html'},
+            {id: 85, name: 'Date Calculator', icon: '📅', category: 'calculator', description: 'Calculate date difference', url: '/tools/calc/date-calculator.html'},
+
+            // SOCIAL MEDIA TOOLS (86-95)
+            {id: 86, name: 'Instagram Hashtag', icon: '📸', category: 'social', description: 'Generate Instagram hashtags', url: '/tools/social/instagram-hashtag.html', popular: true},
+            {id: 87, name: 'YouTube Title Gen', icon: '📺', category: 'social', description: 'YouTube title ideas', url: '/tools/social/youtube-title.html', popular: true},
+            {id: 88, name: 'Tweet Generator', icon: '🐦', category: 'social', description: 'Generate tweet ideas', url: '/tools/social/tweet-generator.html'},
+            {id: 89, name: 'Bio Generator', icon: '✍️', category: 'social', description: 'Social media bio ideas', url: '/tools/social/bio-generator.html'},
+            {id: 90, name: 'Caption Writer', icon: '💬', category: 'social', description: 'Write captions', url: '/tools/social/caption-writer.html'},
+            {id: 91, name: 'Hashtag Analyzer', icon: '📊', category: 'social', description: 'Analyze hashtags', url: '/tools/social/hashtag-analyzer.html'},
+            {id: 92, name: 'Link Shortener', icon: '🔗', category: 'social', description: 'Shorten URLs', url: '/tools/social/link-shortener.html'},
+            {id: 93, name: 'UTM Builder', icon: '🏷️', category: 'social', description: 'Build UTM links', url: '/tools/social/utm-builder.html'},
+            {id: 94, name: 'WhatsApp Link', icon: '💚', category: 'social', description: 'WhatsApp link generator', url: '/tools/social/whatsapp-link.html'},
+            {id: 95, name: 'Social Calendar', icon: '📆', category: 'social', description: 'Content calendar', url: '/tools/social/social-calendar.html'},
+
+            // AI TOOLS (96-100)
+            {id: 96, name: 'AI Writer', icon: '🤖', category: 'ai', description: 'AI content writer', url: '/tools/ai/ai-writer.html', popular: true},
+            {id: 97, name: 'Code Generator', icon: '💻', category: 'ai', description: 'Generate code with AI', url: '/tools/ai/code-generator.html'},
+            {id: 98, name: 'Image Generator', icon: '🎨', category: 'ai', description: 'AI image creation', url: '/tools/ai/image-generator.html'},
+            {id: 99, name: 'Chatbot', icon: '💬', category: 'ai', description: 'AI chatbot assistant', url: '/tools/ai/chatbot.html'},
+            {id: 100, name: 'Voice Assistant', icon: '🎤', category: 'ai', description: 'AI voice assistant', url: '/tools/ai/voice-assistant.html'}
+        ];
+
+        // Load tools on page load
+        window.onload = function() {
+            displayTools(allTools);
+        };
+
+        // Display tools in grid
+        function displayTools(tools) {
+            const grid = document.getElementById('toolsGrid');
+            grid.innerHTML = tools.map(tool => `
+                <div class="tool-card bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="openTool('${tool.url}')">
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="text-3xl">${tool.icon}</span>
+                        ${tool.popular ? '<span class="bg-yellow-400 text-xs px-2 py-1 rounded-full font-semibold">POPULAR</span>' : ''}
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">${tool.name}</h3>
+                    <p class="text-gray-600 text-sm">${tool.description}</p>
+                    <div class="mt-4">
+                        <button class="text-purple-600 font-semibold hover:text-purple-800">
+                            Open Tool →
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Search tools
+        function searchTools(query) {
+            const filtered = allTools.filter(tool => 
+                tool.name.toLowerCase().includes(query.toLowerCase()) ||
+                tool.description.toLowerCase().includes(query.toLowerCase())
+            );
+            displayTools(filtered);
+            
+            if (filtered.length === 0) {
+                document.getElementById('toolsGrid').innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <p class="text-gray-500">No tools found for "${query}"</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Filter by category
+        function filterByCategory(category) {
+            const filtered = allTools.filter(tool => tool.category === category);
+            displayTools(filtered);
+            document.getElementById('tools').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Sort tools
+        function sortTools(sortBy) {
+            let sorted = [...allTools];
+            if (sortBy === 'name') {
+                sorted.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (sortBy === 'popular') {
+                sorted = allTools.filter(t => t.popular).concat(allTools.filter(t => !t.popular));
+            }
+            displayTools(sorted);
+        }
+
+        // Open tool
+        function openTool(url) {
+            window.location.href = url;
+        }
+
+        // Load more tools (pagination)
+        let currentlyShowing = 20;
+        function loadMoreTools() {
+            currentlyShowing += 20;
+            displayTools(allTools.slice(0, currentlyShowing));
+        }
+    </script>
+</body>
+</html>
