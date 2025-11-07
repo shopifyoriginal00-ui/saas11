@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[TOOL NAME] - Free Online Tool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <div class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <a href="/index.html" class="text-blue-600 hover:underline">← Back to All Tools</a>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+            <h1 class="text-3xl font-bold text-center mb-8">[TOOL NAME]</h1>
+            
+            <!-- Input Section -->
+            <div class="mb-6">
+                <label class="block text-sm font-medium mb-2">Input:</label>
+                <!-- Add your input fields here -->
+            </div>
+            
+            <!-- Process Button -->
+            <button onclick="process()" class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600">
+                Process
+            </button>
+            
+            <!-- Output Section -->
+            <div class="mt-6">
+                <label class="block text-sm font-medium mb-2">Output:</label>
+                <div id="output" class="p-4 bg-gray-50 rounded-lg min-h-[100px]">
+                    <!-- Output will appear here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function process() {
+            // Add your tool logic here
+        }
+    </script>
+</body>
+</html>
